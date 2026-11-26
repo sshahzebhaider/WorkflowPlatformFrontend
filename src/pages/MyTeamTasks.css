@@ -1,0 +1,97 @@
+/* Team workspace: fit the available content width without any page-wide horizontal scrolling. */
+.my-team-layout,
+.my-team-layout .case-type-main,
+.my-team-layout .panel {
+  min-width: 0;
+}
+.my-team-layout .toolbar {
+  flex-wrap: wrap;
+  align-items: center;
+}
+.team-member-list,
+.team-pending-list {
+  width: 100%;
+  min-width: 0;
+}
+.team-member-row {
+  appearance: none;
+  display: grid;
+  grid-template-columns: minmax(130px, 1.6fr) minmax(72px, .8fr) 64px minmax(135px, 1.4fr) minmax(95px, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  border: 0;
+  border-top: 1px solid #edf0f3;
+  padding: 15px 18px;
+  background: #fff;
+  color: #263245;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.team-member-row:hover { background: #fffafa; }
+.team-member-row:focus-visible,
+.team-pending-open:focus-visible { outline: 2px solid #dc2626; outline-offset: -3px; }
+.team-member-identity,
+.team-member-count,
+.team-member-availability {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.team-member-identity strong { overflow-wrap: anywhere; }
+.team-member-row small { font-size: 11px; color: #788292; overflow-wrap: anywhere; }
+.team-member-role { min-width: 0; color: #596474; font-size: 12px; }
+.team-member-count { align-items: center; }
+.team-member-count strong { font-size: 16px; }
+.team-member-progress { min-width: 0; }
+.team-member-progress .ant-progress { width: 100%; }
+.team-member-availability .ant-tag { align-self: flex-start; margin-inline-end: 0; }
+.team-member-view { color: #bf1723; font-weight: 600; font-size: 12px; white-space: nowrap; }
+.team-pending-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+  padding: 12px 17px;
+  border-top: 1px solid #edf0f3;
+}
+.team-pending-open {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1 1 180px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  color: #263245;
+  font: inherit;
+}
+.team-pending-open strong { color: #bf1723; font-size: 12px; overflow-wrap: anywhere; }
+.team-pending-open span { font-weight: 600; font-size: 12px; overflow-wrap: anywhere; }
+.team-pending-open small { color: #788292; font-size: 11px; }
+.team-pending-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; }
+@media (max-width: 1350px) {
+  .my-team-layout { grid-template-columns: minmax(0, 1fr); }
+  .my-team-layout .case-type-sidebar { min-height: 0; }
+  .team-member-row { grid-template-columns: minmax(140px,1.5fr) minmax(65px,.7fr) 65px minmax(130px,1.3fr) auto; }
+  .team-member-availability { display: none; }
+}
+@media (max-width: 720px) {
+  .team-member-row { grid-template-columns: minmax(110px,1fr) 60px minmax(100px,1fr); gap: 8px; padding: 12px; }
+  .team-member-role, .team-member-view { display: none; }
+  .team-member-count { align-items: start; }
+  .my-team-layout .toolbar .helper-text { flex: 1 1 100%; }
+}
+
+.team-drawer-member-summary { display:flex; flex-direction:column; gap:5px; padding:12px 14px; background:#f8f9fb; border:1px solid #e5e7eb; border-radius:7px; margin:0 0 16px; }
+.team-drawer-member-summary strong { font-size:14px; }
+.team-drawer-member-summary span { color:#394253; font-size:12px; }
+.team-drawer-member-summary small { color:#788292; font-size:11px; }

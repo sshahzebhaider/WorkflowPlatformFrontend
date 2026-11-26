@@ -1,0 +1,13 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { App as AntApp, ConfigProvider } from 'antd';
+import { PlatformProvider } from './context/PlatformContext';
+import { ApiPlatformProvider } from './context/ApiPlatformProvider';
+import { LIVE_API } from './services/liveApi';
+import { theme } from './app/theme';
+import { App } from './app/App';
+import '@xyflow/react/dist/style.css';
+import './styles.css';
+const ActiveProvider = LIVE_API ? ApiPlatformProvider : PlatformProvider;
+ReactDOM.createRoot(document.getElementById('root')).render(<React.StrictMode><ConfigProvider theme={theme}><AntApp><ActiveProvider><BrowserRouter><App /></BrowserRouter></ActiveProvider></AntApp></ConfigProvider></React.StrictMode>);
